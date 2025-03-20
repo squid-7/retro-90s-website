@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro 90s Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="infintering.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.hover-text {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffd700;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    padding: 8px 0;
+    transition: bottom 0.3s ease;
+}
+
+.image-container:hover .hover-text {
+    bottom: 0;
+}
+
+.item a {
+    display: block;
+    cursor: pointer;
+}
+        body {
+            background-color: #8b5a2b;
+            background-image: 
+                repeating-linear-gradient(
+                    to right, rgba(255,255,255,0.1) 0 1px, transparent 1px 100px
+                ),
+                repeating-linear-gradient(
+                    to bottom, rgba(255,255,255,0.1) 0 1px, transparent 1px 100px
+                );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
+        body::before {
+            position: absolute;
+            width: min(1400px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            content: '';
+            background-image: url(images/bg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+        .welcome {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 20px;
+            color:beige;
+            text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ff8c00, 0 0 30px #ff8c00;
+            animation: glow 1.5s infinite alternate, floatText 2s infinite ease-in-out;
+            margin-bottom: 20px; 
+            margin-top: 20px; 
+        }
+        .quote {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            color: beige;
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 0 20px;
+        }
+        .banner {
+            position: relative;
+        }
+        .center-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            color: beige;
+            text-align: center;
+            background-color: rgba(127, 24, 24, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 20px #ff8c00, 0 0 30px #ff8c00;
+            }
+            to {
+                text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ff8c00, 0 0 50px #ff8c00;
+            }
+        }
+        @keyframes floatText {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="welcome">✨ "Step into the past, embrace the retro, live the nostalgia!" ✨</div>
+    <div class="quote">"The 90s was a decade of great music, iconic fashion, and unforgettable memories."</div>
+    <div class="banner">
+        <div class="center-message">Click on the image to<br> open the related website</div>
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><a href="originofanime.html"><img src="origin.webp" alt=""></a></div>
+            <div class="item" style="--position: 2"><a href="foods.html"><img src="food.webp" alt=""></a></div>
+            <div class="item" style="--position: 3"><a href="fashion.html"><img src="fashion2.webp" alt=""></a></div>
+            <div class="item" style="--position: 4"><a href="login.html"><img src="music.webp" alt=""></a></div>
+            <div class="item" style="--position: 5"><a href="games.html"><img src="gaming.webp" alt=""></a></div>
+            <div class="item" style="--position: 6"><a href="origin.html"><img src="origin.webp" alt=""></a></div>
+            <div class="item" style="--position: 7"><a href="foods.html"><img src="food.webp" alt=""></a></div>
+            <div class="item" style="--position: 8"><a href="fashion.html"><img src="fashion2.webp" alt=""></a></div>
+            <div class="item" style="--position: 9"><a href="login.html"><img src="music.webp" alt=""></a></div>
+            <div class="item" style="--position: 10"><a href="games.html"><img src="gaming.webp" alt=""></a></div>
+        </div>
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1">
+                <a href="origin.html">
+                    <div class="image-container">
+                        <img src="origin.webp" alt="">
+                        <div class="hover-text">Origin</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 2">
+                <a href="food.html">
+                    <div class="image-container">
+                        <img src="food.webp" alt="">
+                        <div class="hover-text">Food</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 3">
+                <a href="fashion.html">
+                    <div class="image-container">
+                        <img src="fashion2.webp" alt="">
+                        <div class="hover-text">Fashion</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 4">
+                <a href="music.html">
+                    <div class="image-container">
+                        <img src="music.webp" alt="">
+                        <div class="hover-text">Music</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 5">
+                <a href="gaming.html">
+                    <div class="image-container">
+                        <img src="gaming.webp" alt="">
+                        <div class="hover-text">Gaming</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 6">
+                <a href="origin.html">
+                    <div class="image-container">
+                        <img src="origin.webp" alt="">
+                        <div class="hover-text">Origin</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 7">
+                <a href="food.html">
+                    <div class="image-container">
+                        <img src="food.webp" alt="">
+                        <div class="hover-text">Food</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 8">
+                <a href="fashion.html">
+                    <div class="image-container">
+                        <img src="fashion2.webp" alt="">
+                        <div class="hover-text">Fashion</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 9">
+                <a href="music.html">
+                    <div class="image-container">
+                        <img src="music.webp" alt="">
+                        <div class="hover-text">Music</div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="--position: 10">
+                <a href="gaming.html">
+                    <div class="image-container">
+                        <img src="gaming.webp" alt="">
+                        <div class="hover-text">Gaming</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

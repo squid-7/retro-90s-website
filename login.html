@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Page Login / Signup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body {
+            background: url('logins.webp') no-repeat center center fixed;
+            background-size: cover;
+            color:#fff;
+            font-family:'Press Start 2P',cursive;
+            text-align:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            flex-direction:column;
+            overflow:hidden;
+            position:relative;
+        }
+        .login-box{
+            background:rgba(0,0,0,0.8);
+            padding:30px;
+            border:3px solid #ffcc00;
+            box-shadow:0 0 20px #ffcc00;
+            transition:transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275),box-shadow 0.5s ease-in-out;
+            max-width:400px;width:90%;
+            position:relative;z-index:10;
+            backdrop-filter:blur(5px);
+            border-radius:10px;
+        }
+        .login-box:hover{
+            transform:scale(1.05) rotate(1deg);
+            box-shadow:0 0 40px #ffcc00,0 0 60px rgba(255,102,0,0.5);
+        }
+        input{
+            display:block;
+            margin:10px auto;
+            padding:15px;
+            width:100%;
+            background:rgba(0,0,0,0.7);
+            border:2px solid #ffcc00;
+            color:#ffcc00;
+            font-size:14px;
+            transition:all 0.3s;
+            border-radius:5px;
+            font-family:'Press Start 2P',cursive;
+        }
+        input:focus{
+            border:2px solid #ff6600;
+            box-shadow:0 0 15px #ff6600,0 0 5px #ffcc00 inset;
+            outline:none;
+            transform:translateY(-3px);
+        }
+        .login-btn,.signup-btn{
+            background:linear-gradient(45deg,#ffcc00,#ff6600);
+            color:black;
+            border:none;
+            padding:15px;
+            cursor:pointer;
+            width:100%;
+            font-size:16px;
+            transition:all 0.3s ease-in-out;
+            position:relative;
+            overflow:hidden;
+            border-radius:5px;
+            font-family:'Press Start 2P',cursive;
+            font-weight:bold;
+            letter-spacing:1px;
+        }
+        .login-btn:hover,.signup-btn:hover{
+            box-shadow:0 0 20px #ffcc00;
+            transform:translateY(-5px);
+            letter-spacing:2px;
+        }
+        .login-btn:active,.signup-btn:active{
+            transform:translateY(3px);
+            box-shadow:0 0 5px #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Enter the Music Zone</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button class="login-btn" onclick="checkLogin()">Login</button>
+        <button class="signup-btn" onclick="signUp()">Sign Up</button>
+    </div>
+    <script>
+        function checkLogin(){
+            var user=document.getElementById('username').value;
+            var pass=document.getElementById('password').value;
+            if(user&&pass){
+                alert('Login successful (Functionality to be implemented)!');
+                window.location.href='music.html';
+            }else{
+                alert('Please enter valid credentials.');
+            }
+        }
+        function signUp(){
+            var user=document.getElementById('username').value;
+            var pass=document.getElementById('password').value;
+            if(user&&pass){
+                alert('Signup successful (Functionality to be implemented)!');
+            }else{
+                alert('Please enter a username and password to sign up.');
+            }
+        }
+    </script>
+</body>
+</html>

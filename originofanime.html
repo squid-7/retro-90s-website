@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Origin of Anime</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {
+            font-family:'Courier New',monospace;
+            background-color:#000;
+            color:#fff;
+            line-height:1.6;
+            background-image:url('/api/placeholder/800/600');
+            background-size:cover;
+            background-attachment:fixed;
+            background-position:center;
+        }
+        .container {max-width:900px;margin:0 auto;padding:20px;}
+        header {
+            text-align:center;
+            padding:40px 0;
+            background-color:rgba(0,0,0,0.7);
+            border-bottom:3px solid #ff00ff;
+            margin-bottom:30px;
+            transform-style:preserve-3d;
+            transition:transform 0.5s ease;
+        }
+        header:hover {transform:perspective(500px) rotateX(5deg);}
+        h1 {
+            font-size:3rem;
+            color:#ff00ff;
+            text-shadow:3px 3px 0 #00ffff;
+            letter-spacing:3px;
+            margin-bottom:15px;
+        }
+        h2 {
+            font-size:2rem;
+            color:#00ffff;
+            text-shadow:2px 2px 0 #ff00ff;
+            margin:30px 0 15px;
+            border-bottom:2px dashed #00ffff;
+            padding-bottom:5px;
+        }
+        .subtitle {font-size:1.2rem;color:#ffff00;}
+        .content-section {
+            background-color:rgba(0,0,0,0.8);
+            padding:25px;
+            margin-bottom:30px;
+            border:2px solid #00ffff;
+            box-shadow:0 0 15px #ff00ff;
+            transition:all 0.3s ease;
+        }
+        .content-section:hover {
+            transform:scale(1.02);
+            box-shadow:0 0 25px #ff00ff;
+        }
+        .image-container {
+            display:flex;
+            justify-content:center;
+            margin:20px 0;
+            perspective:1000px;
+        }
+        .image-wrapper {
+            position:relative;
+            width:300px;
+            height:200px;
+            margin:0 15px;
+            overflow:hidden;
+            border:3px solid #ff00ff;
+            transition:transform 0.5s ease;
+        }
+        .image-wrapper:hover {transform:perspective(500px) rotateY(10deg);z-index:1;}
+        .image-wrapper img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transition:all 0.5s ease;
+        }
+        .image-wrapper:hover img {transform:scale(1.1);}
+        .image-caption {
+            position:absolute;
+            bottom:0;
+            left:0;
+            width:100%;
+            background-color:rgba(0,0,0,0.7);
+            color:#ffff00;
+            padding:8px;
+            transform:translateY(100%);
+            transition:transform 0.3s ease;
+        }
+        .image-wrapper:hover .image-caption {transform:translateY(0);}
+        p {margin-bottom:15px;text-shadow:1px 1px 0 #000;}
+        .timeline {
+            position:relative;
+            margin:40px 0;
+            padding-left:30px;
+            border-left:4px dashed #ff00ff;
+        }
+        .timeline-item {
+            position:relative;
+            margin-bottom:30px;
+            padding:15px;
+            background-color:rgba(0,0,255,0.3);
+            border:2px solid #00ffff;
+            transform:translateX(20px);
+            opacity:0;
+            transition:all 0.5s ease;
+        }
+        .content-section:hover .timeline-item {transform:translateX(0);opacity:1;}
+        .timeline-item::before {
+            content:'';
+            position:absolute;
+            left:-41px;
+            top:15px;
+            width:20px;
+            height:20px;
+            background-color:#ff00ff;
+            border-radius:50%;
+            border:3px solid #00ffff;
+        }
+        .year {
+            display:inline-block;
+            background-color:#ff00ff;
+            color:#000;
+            padding:3px 10px;
+            font-weight:bold;
+            margin-bottom:10px;
+        }
+        footer {
+            text-align:center;
+            padding:20px;
+            background-color:rgba(0,0,0,0.7);
+            border-top:3px solid #ff00ff;
+        }
+        @keyframes glowing {
+            0% {text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 15px #ff00ff,0 0 20px #ff00ff;}
+            100% {text-shadow:0 0 10px #fff,0 0 15px #00ffff,0 0 20px #00ffff,0 0 25px #00ffff;}
+        }
+        .glow-text {animation:glowing 1.5s alternate infinite;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE ORIGIN OF ANIME</h1>
+            <div class="subtitle glow-text">A Journey Through Time</div>
+        </header>
+
+        <div class="content-section">
+            <h2>Introduction</h2>
+            <p>Anime, the distinctive style of animation originating from Japan, has conquered the global entertainment landscape with its unique visual aesthetic, complex narratives, and diverse genres. What began as simple experiments in animation has evolved into a cultural phenomenon that influences art, storytelling, fashion, and technology worldwide.</p>
+            <p>The story of anime is one of artistic innovation, cultural exchange, and technological evolution spanning over a century. This journey takes us from the earliest Japanese animated works to the global industry we know today.</p>
+            
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="pic.webp" alt="Modern Anime Example">
+                    <div class="image-caption">Modern anime encompasses countless genres and styles</div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="naru.webp" alt="Early Animation Example">
+                    <div class="image-caption">Early animation techniques laid the foundation</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Early Beginnings</h2>
+            <p>The history of Japanese animation can be traced back to the early 1900s, when Japanese filmmakers began experimenting with animation techniques that were being developed in France, Germany, and the United States.</p>
+            <p>While examples of animated films existed in Japan before 1917, many film historians consider "Namakura Gatana" (The Blunt Sword) by Jun'ichi Kōuchi to be the oldest surviving Japanese animated short. This three-minute silent film depicted a samurai attempting to test a new sword, only to be defeated by his target.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1917</div>
+                    <p>Jun'ichi Kōuchi creates "Namakura Gatana" (The Blunt Sword), one of the earliest known Japanese animations.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1920s</div>
+                    <p>Early animators like Ōten Shimokawa, Seitarō Kitayama, and Sanae Yamamoto produce short animated films using chalk, paper cutouts, and cel animation.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1933</div>
+                    <p>"Chikara to Onna no Yo no Naka" (Within the World of Power and Women) becomes the first Japanese animated film with a soundtrack.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1945</div>
+                    <p>The Japanese animation industry faces severe setbacks during World War II, with resources diverted to propaganda films.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Tezuka Revolution</h2>
+            <p>The most significant turning point in anime's history came with the emergence of Osamu Tezuka, often referred to as the "God of Manga." Heavily influenced by Walt Disney's animation and American comics, Tezuka developed a distinctive style characterized by large, expressive eyes, dramatic storytelling, and cinematic techniques.</p>
+            <p>His groundbreaking manga series "Astro Boy" (Tetsuwan Atom) was adapted into the first regularly broadcast anime TV series in 1963. This marked the birth of the anime industry as we know it today, with Tezuka introducing several cost-saving animation techniques that would become industry standards.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1963</div>
+                    <p>Osamu Tezuka's "Astro Boy" becomes the first regularly broadcast anime TV series, pioneering limited animation techniques to reduce production costs.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1963-1965</div>
+                    <p>"Gigantor" (Tetsujin 28-go) and "8 Man" establish early robot and superhero themes that would become staples of the medium.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1967</div>
+                    <p>"Mach GoGoGo" (Speed Racer) gains international popularity, becoming one of the first anime series broadcast in the United States.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1970s</div>
+                    <p>The "mecha" genre evolves with shows like "Mazinger Z" and "Mobile Suit Gundam," establishing complex narratives around giant robots.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Global Rise</h2>
+            <p>By the 1980s, anime had begun cultivating a dedicated international audience. The release of Katsuhiro Otomo's "Akira" in 1988 marked a watershed moment for anime's global recognition, stunning audiences worldwide with its unprecedented animation quality, cyberpunk aesthetic, and mature themes.</p>
+            <p>During the 1990s, anime experienced explosive growth internationally, with series like "Sailor Moon," "Dragon Ball Z," and "Pokémon" introducing entire generations of children outside Japan to anime aesthetics and storytelling conventions.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1988</div>
+                    <p>"Akira" revolutionizes animation with its unprecedented detail, fluid motion, and mature cyberpunk narrative.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1995</div>
+                    <p>"Neon Genesis Evangelion" redefines the mecha genre with psychological depth and philosophical themes.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1997</div>
+                    <p>"Princess Mononoke" achieves critical acclaim and commercial success, highlighting anime's environmental themes.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">1998</div>
+                    <p>"Pokémon" becomes a global phenomenon, expanding beyond television into games, merchandise, and films.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>The Digital Revolution</h2>
+            <p>The 21st century has seen anime transform through digital animation techniques, online distribution platforms, and increasingly global production collaborations. The internet has allowed anime to reach unprecedented audiences worldwide, with streaming services dedicated to anime catalogs.</p>
+            <p>Today, anime influences global popular culture, from Hollywood films to fashion, music, and art. Productions like "Your Name" (2016) have broken international box office records, while series such as "Attack on Titan" and "Demon Slayer" command global audiences comparable to the biggest Western entertainment properties.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">2001</div>
+                    <p>"Spirited Away" becomes the first anime film to win an Academy Award and breaks Japanese box office records.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2006</div>
+                    <p>The rise of digital animation techniques transforms production processes and visual possibilities.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2013</div>
+                    <p>"Attack on Titan" achieves global cult status, demonstrating anime's growing mainstream appeal.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="year">2020</div>
+                    <p>"Demon Slayer: Mugen Train" becomes the highest-grossing Japanese film of all time, surpassing Studio Ghibli's classics.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Legacy and Future</h2>
+            <p>From its humble beginnings in the early 20th century to its current status as a global cultural force, anime has undergone remarkable evolution. What started as simple experiments by individual artists has grown into a multi-billion dollar industry that employs thousands and entertains millions.</p>
+            <p>As technology continues to evolve with AI-assisted animation, virtual reality, and increasingly global collaborations, anime stands at the frontier of visual storytelling. Yet through all these changes, the distinctive aesthetic sensibilities, narrative approaches, and cultural elements that make anime unique continue to be preserved and celebrated.</p>
+            <p>The story of anime is far from over—it continues to transform, innovate, and inspire across generations and borders.</p>
+        </div>
+
+        <footer>
+            <p class="glow-text">The story of anime continues to evolve...</p>
+            <p>© 2025 Anime History Project</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            const sections=document.querySelectorAll('.content-section');
+            window.addEventListener('scroll',function(){
+                sections.forEach(section=>{
+                    const sectionTop=section.getBoundingClientRect().top;
+                    const windowHeight=window.innerHeight;
+                    if(sectionTop<windowHeight*0.75){
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

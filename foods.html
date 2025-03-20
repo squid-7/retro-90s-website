@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Food in the 90s</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+    background-color: #111;
+    background-image: url('food.webp');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center center; 
+    color: #fff;
+    overflow-x: hidden;
+}
+
+        
+        .header {
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("/api/placeholder/1200/800");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.5rem;
+            max-width: 80%;
+            margin: 0 auto;
+            border-left: 4px solid #ff6b6b;
+            padding-left: 1rem;
+        }
+        
+        .dish-container {
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: opacity 1s ease, transform 1s ease, background-color 1s ease;
+            background-color: #222;
+        }
+        
+        .dish-container:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(100px);
+        }
+        
+        .dish-container.active {
+            opacity: 1;
+            transform: translateX(0);
+            background-color: rgba(40, 40, 40, 0.9);
+        }
+        
+        .dish-image {
+            flex: 1;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .dish-content {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .dish-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            color: #ff6b6b;
+        }
+        
+        .dish-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+        
+        .dish-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: #ddd;
+        }
+
+        #ramen h2, #ramen h2::after {
+            color: #ff6b6b;
+            background-color: #ff6b6b;
+        }
+        
+        #karaoke h2, #karaoke h2::after {
+            color: #6bff6b;
+            background-color: #6bff6b;
+        }
+        
+        #konbini h2, #konbini h2::after {
+            color: #6b6bff;
+            background-color: #6b6bff;
+        }
+        
+        #izakaya h2, #izakaya h2::after {
+            color: #ffff6b;
+            background-color: #ffff6b;
+        }
+        
+        #fusion h2, #fusion h2::after {
+            color: #ff6bff;
+            background-color: #ff6bff;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-30px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-15px) translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dish-container {
+                flex-direction: column !important;
+                padding: 1rem;
+            }
+            
+            .dish-image {
+                width: 100%;
+                height: 300px;
+                margin-bottom: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .quote {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Japanese Food in the 90s</h1>
+        <div class="quote">
+            "In the 90s, Japan's culinary scene was a perfect blend of tradition and innovation, 
+            reflecting the economic bubble's excess and subsequent minimalism."
+        </div>
+        <div class="scroll-down">Scroll Down ↓</div>
+    </div>
+    
+    <section class="dish-container" id="ramen">
+        <div class="dish-image" style="background-image: url('1.jpg');"></div>
+        <div class="dish-content">
+            <h2>Trendy Ramen Boom</h2>
+            <p>The 1990s saw an explosion in ramen's popularity, with specialty shops popping up throughout urban centers. Tonkotsu (pork bone) ramen became particularly fashionable, with its rich, creamy broth and fresh handmade noodles.</p>
+            <p>Chefs began experimenting with regional styles and ingredients, creating signature bowls that drew crowds and long lines. The economic recession actually fueled ramen's popularity as it offered satisfying, affordable comfort food during tough times.</p>
+        </div>
+    </section>
+    
+    <section class="dish-container" id="karaoke">
+        <div class="dish-image" style="background-image: url('2.jpg');"></div>
+        <div class="dish-content">
+            <h2>Karaoke Bar Food</h2>
+            <p>The karaoke boom of the 90s created a unique food subculture centered around all-night singing sessions. These establishments offered special "nomihoudai" (all-you-can-drink) and "tabehoudai" (all-you-can-eat) packages.</p>
+            <p>Popular offerings included edamame, karaage (Japanese fried chicken), takoyaki (octopus balls), and yakitori skewers. These shareable dishes were designed to be eaten casually while singing and drinking with friends.</p>
+        </div>
+    </section>
+    
+    <section class="dish-container" id="konbini">
+        <div class="dish-image" style="background-image: url('3.jpg');"></div>
+        <div class="dish-content">
+            <h2>Konbini Revolution</h2>
+            <p>The 1990s marked the golden age of Japanese convenience stores (konbini), which transformed from basic shops into food destinations with high-quality ready-to-eat meals.</p>
+            <p>Seven-Eleven, Lawson, and FamilyMart competed by developing premium onigiri (rice balls), sandwiches, and bento boxes. This was the decade when konbini fried chicken, egg sandwiches, and premium steamed buns became cultural institutions.</p>
+        </div>
+    </section>
+    
+    <section class="dish-container" id="izakaya">
+        <div class="dish-image" style="background-image: url('4.webp');"></div>
+        <div class="dish-content">
+            <h2>Izakaya Renaissance</h2>
+            <p>Traditional Japanese pubs experienced a renaissance in the 90s, adapting to changing tastes while preserving their casual, communal atmosphere. Chain izakayas like "Watami" and "Shirokiya" expanded nationwide.</p>
+            <p>Signature dishes included sashimi platters, grilled fish, okonomiyaki (savory pancakes), and innovative small plates designed for sharing. The "otoshi" tradition (small appetizer served automatically) became more elaborate during this period.</p>
+        </div>
+    </section>
+
+    <section class="dish-container" id="fusion">
+        <div class="dish-image" style="background-image: url('5.webp');"></div>
+        <div class="dish-content">
+            <h2>Western-Japanese Fusion</h2>
+            <p>The 90s witnessed the rise of innovative fusion cuisine that blended Western techniques with Japanese ingredients and aesthetics. Restaurants began experimenting with cross-cultural concepts like Japanese-Italian pasta dishes and Japanese-French pastries.</p>
+            <p>The famous "omurice" (omelet with rice) was elevated to gourmet status, while "hamburg steak" (Japanese-style hamburger patty) became a staple of family restaurants. Yoshoku (Western-influenced Japanese cuisine) reached new heights of sophistication.</p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dishes = document.querySelectorAll('.dish-container');
+            
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.75 &&
+                    rect.bottom >= 0
+                );
+            }
+            
+            function checkVisibility() {
+                dishes.forEach(dish => {
+                    if (isInViewport(dish)) {
+                        dish.classList.add('active');
+                    }
+                });
+            }
+            
+            checkVisibility();
+            
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

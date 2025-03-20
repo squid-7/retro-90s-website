@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>90s Japan Music</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --card-height: 300px;
+            --card-width: calc(var(--card-height) / 1.5);
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: url('jmusic.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #ff00ff;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .card {
+            width: var(--card-width);
+            height: var(--card-height);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding: 0 36px;
+            perspective: 2500px;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .card-label {
+            position: absolute;
+            bottom: -30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            z-index: 10;
+        }
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .wrapper {
+            transition: all 0.5s;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .card:hover .wrapper {
+            transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+            box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+        }
+        .wrapper::before, .wrapper::after {
+            content: "";
+            opacity: 0;
+            width: 100%;
+            height: 80px;
+            transition: all 0.5s;
+            position: absolute;
+            left: 0;
+        }
+        .card:hover .wrapper::before, .wrapper::after {
+            opacity: 1;
+        }
+        .song-list {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        .genre-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.8em;
+        }
+        .song-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #222;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .song-table th, .song-table td {
+            border: 1px solid #444;
+            padding: 12px;
+            text-align: left;
+            font-size: 0.7em;
+        }
+        .song-table th {
+            background-color: #000;
+            color: #ff00ff;
+        }
+        .close-btn {
+            background-color: #ff00ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .close-btn:hover {
+            background-color: #cc00cc;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 90;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="shinunoga.mp3">
+</audio>
+
+<header>
+    <h1>90s JAPAN MUSIC EXPLORATION</h1>
+    <h2>Discover the Golden Era of Japanese Music</h2>
+    <div class="quote">"Music is the universal language that transcends all boundaries, and 90s Japanese music captures a unique moment in time where tradition met innovation." - Music Historian</div>
+</header>
+
+<div class="container">
+    <div class="card" onclick="showSongs('citypop')">
+        <div class="wrapper"><img class="cover-image" src="citypop.webp"></div>
+        <div class="card-label">CITY POP</div>
+    </div>
+    <div class="card" onclick="showSongs('jrock')">
+        <div class="wrapper"><img class="cover-image" src="jrock.webp"></div>
+        <div class="card-label">J-ROCK</div>
+    </div>
+    <div class="card" onclick="showSongs('enka')">
+        <div class="wrapper"><img class="cover-image" src="enka.webp"></div>
+        <div class="card-label">ENKA</div>
+    </div>
+    <div class="card" onclick="showSongs('jpop')">
+        <div class="wrapper"><img class="cover-image" src="jpop.webp"></div>
+        <div class="card-label">J-POP</div>
+    </div>
+    <div class="card" onclick="showSongs('anime')">
+        <div class="wrapper"><img class="cover-image" src="animeost.webp"></div>
+        <div class="card-label">ANIME</div>
+    </div>
+</div>
+
+<div id="overlay" class="overlay" onclick="closeSongs()"></div>
+<div id="song-list" class="song-list">
+    <h2 id="genre-title"></h2>
+    <div id="genre-description" class="genre-description"></div>
+    <table class="song-table">
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Year</th>
+                <th>Description</th>
+                <th>Legacy</th>
+            </tr>
+        </thead>
+        <tbody id="songs"></tbody>
+    </table>
+    <button class="close-btn" onclick="closeSongs()">Close</button>
+</div>
+
+<script>
+    const genreDescriptions = {
+        citypop: "City Pop emerged in the late 1970s and peaked in the 1980s, blending jazz, funk, R&B, and disco with glossy production. It embodied Japan's economic bubble era with sophisticated, cosmopolitan sounds that captured urban lifestyle fantasies. In recent years, City Pop has experienced a global revival through online platforms, introducing new generations to its nostalgic sounds.",
+        jrock: "J-Rock developed in the 1990s as Japanese rock bands created their own unique style, blending Western rock influences with distinctly Japanese sensibilities. From visual kei's theatrical performances to alternative rock's raw energy, J-Rock created a vibrant scene that influenced global rock music while maintaining its cultural identity.",
+        enka: "Enka is often described as 'Japanese blues' - a traditional ballad style characterized by melodramatic vocals, vibrato, and pentatonic scales. Though originating before the 90s, the genre remained popular throughout the decade, especially among older generations. Enka songs typically deal with themes of lost love, hardship, and nostalgia.",
+        jpop: "90s J-Pop represented a golden era for Japanese popular music, with idol groups, solo artists, and bands achieving massive success. Characterized by catchy melodies, slick production, and often accompanied by elaborate music videos and marketing campaigns, 90s J-Pop dominated the Japanese charts and began spreading internationally.",
+        anime: "Anime soundtracks in the 90s became cultural phenomena in their own right, with many songs transcending their shows to become mainstream hits. From emotional ballads to high-energy rock, these themes perfectly complemented iconic anime series while establishing a distinct musical genre that would influence future generations."
+    };
+
+    const genres = {
+        citypop: [
+            ["Plastic Love", "Mariya Takeuchi", "1984", "A smooth, jazzy hit defining City Pop with its sophisticated blend of disco, funk, and pop.", "Became a viral sensation decades later on YouTube, introducing City Pop to a new global audience."],
+            ["Stay With Me", "Miki Matsubara", "1979", "A classic with nostalgic melodies and memorable saxophone lines capturing the urban night atmosphere.", "Experienced a massive revival on TikTok in the 2020s, becoming a cross-generational hit."],
+            ["Midnight Pretenders", "Tomoko Aran", "1983", "A dreamy, soft ballad with lush orchestration and atmospheric production.", "Considered by collectors to be one of the quintessential City Pop deep cuts."],
+            ["Telephone Number", "Junko Ohashi", "1984", "A funky, danceable tune with infectious rhythms and playful English lyrics.", "Frequently sampled in vaporwave and future funk tracks in the 2010s."],
+            ["Bay City", "Anri", "1983", "A stylish pop track with breezy vocals and polished instrumental arrangements.", "Featured on numerous City Pop compilations and considered a gateway song to the genre."]
+        ],
+        jrock: [
+            ["Linda Linda", "The Blue Hearts", "1987", "A punk rock anthem with simple but catchy melodies and rebellious energy.", "Covered by countless artists and featured in the film 'Linda Linda Linda', cementing its status as a rock classic."],
+            ["Sobakasu", "Judy and Mary", "1996", "An energetic alternative rock hit with distinctive vocals from Yuki.", "Gained international recognition as the theme for anime 'Rurouni Kenshin'."],
+            ["Innocent World", "Mr. Children", "1994", "A melodic rock ballad with heartfelt lyrics about youth and innocence.", "One of the best-selling singles in Japanese music history, defining a generation."],
+            ["Glamorous Sky", "NANA starring Mika Nakashima", "2005", "A powerful rock ballad written by Hyde of L'Arc~en~Ciel for the NANA film.", "Bridged the gap between J-Rock and mainstream J-Pop audiences."],
+            ["Rewrite", "Asian Kung-Fu Generation", "2004", "An alternative rock song with dynamic guitars and passionate vocals.", "Gained international exposure as a theme song for 'Fullmetal Alchemist'."]
+        ],
+        enka: [
+            ["Midaregami", "Hibari Misora", "1987", "A classic enka ballad showcasing traditional vocal techniques and emotional depth.", "Performed by the 'Queen of Enka', helping preserve the genre for future generations."],
+            ["Sake yo", "Saburo Kitajima", "1973", "A sorrowful drinking song about drowning one's sorrows, a common enka theme.", "Became a karaoke staple and one of the most recognizable enka songs."],
+            ["Moshimo Mata Itsuka", "Mizue Nishikawa", "1992", "A melancholic ballad about lost love and the possibility of reunion.", "Represented enka's continued relevance in the 90s Japanese music landscape."],
+            ["Tsugaru Kaikyo Fuyugeshiki", "Sayuri Ishikawa", "1986", "A dramatic song about the winter scenery of Tsugaru Strait, rich in imagery.", "Won the prestigious Kōhaku Uta Gassen competition, increasing enka's visibility."],
+            ["Kawa no Nagare no Yō ni", "Hibari Misora", "1989", "A philosophical ballad comparing life to the flow of a river.", "Misora's last recording before her death, giving it special significance in enka history."]
+        ],
+        jpop: [
+            ["Automatic", "Hikaru Utada", "1998", "A smooth R&B track from Utada's debut album 'First Love', showcasing her sophisticated sound.", "Helped establish Utada as a major force in Japanese music at just 15 years old."],
+            ["LOVE MACHINE", "Morning Musume", "1999", "An upbeat, catchy dance-pop song from one of Japan's biggest idol groups.", "Sold over a million copies, demonstrating the commercial power of idol pop in the 90s."],
+            ["Momoiro Kataomoi", "Hikaru Genji", "1990", "A bright pop song with youthful energy from a popular Johnny's idol group.", "Exemplified the polished production and choreography of 90s boy bands."],
+            ["CAN YOU CELEBRATE?", "Namie Amuro", "1997", "A sophisticated ballad combining pop with R&B influences.", "Became Japan's best-selling single by a solo female artist and a popular wedding song."],
+            ["DEPARTURES", "globe", "1996", "A dance-pop track featuring electronic production and Keiko's distinctive vocals.", "Helped define the Eurobeat-influenced Japanese dance music scene of the 90s."]
+        ],
+        anime: [
+            ["A Cruel Angel's Thesis", "Yoko Takahashi", "1995", "An upbeat, dramatic pop song with orchestral elements serving as opening theme for 'Neon Genesis Evangelion'.", "Transcended anime fandom to become a cultural phenomenon regularly performed at concerts and karaoke."],
+            ["Tank!", "The Seatbelts", "1998", "A jazz fusion instrumental with driving rhythms and brassy hooks from 'Cowboy Bebop'.", "Composed by Yoko Kanno, it helped establish anime music as a sophisticated art form."],
+            ["Moonlight Densetsu", "DALI", "1992", "A romantic pop ballad serving as the iconic theme for 'Sailor Moon'.", "Multiple versions were recorded throughout the series' run, making it one of the most recognized anime songs worldwide."],
+            ["Butter-Fly", "Koji Wada", "1999", "An energetic rock song with inspirational lyrics from 'Digimon Adventure'.", "Became an anthem for a generation of anime fans and remained Wada's signature song until his passing."],
+            ["Sobakasu", "Judy and Mary", "1996", "A high-energy alternative rock song featured in 'Rurouni Kenshin'.", "Showcased how anime themes could achieve mainstream success on Japanese music charts."]
+        ]
+    };
+
+    function showSongs(genre) {
+        document.getElementById('genre-title').innerText = genre.toUpperCase() + " - 90s JAPANESE MUSIC";
+        document.getElementById('genre-description').innerText = genreDescriptions[genre];
+        
+        const songTable = document.getElementById('songs');
+        songTable.innerHTML = genres[genre].map(song => 
+            `<tr>
+                <td>${song[0]}</td>
+                <td>${song[1]}</td>
+                <td>${song[2]}</td>
+                <td>${song[3]}</td>
+                <td>${song[4]}</td>
+            </tr>`
+        ).join('');
+        
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById('song-list').style.display = 'block';
+    }
+    
+    function closeSongs() {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('song-list').style.display = 'none';
+    }
+</script>
+</body>
+</html>
